@@ -1,0 +1,2 @@
+Se debe incluir la libreria react-icons
+utilizar npm install react-icons --save
