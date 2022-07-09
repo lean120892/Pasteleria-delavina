@@ -1,18 +1,20 @@
 
 import './App.css';
-import NavBar from './components/NavBar';
+import NavBar from './components/Navbar/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
     <>
-    <header>  <NavBar/> </header>
-    <body> 
+      <NavBar/> 
+    
         <ItemListContainer
-      titulo = "Titulo"
-      cuerpo = "Contenido de la tarjeta"
+          titulo = "Producto 1"
+          cuerpo = "Contenido de la tarjeta"
+         
       ></ItemListContainer>
-    </body>
+
+
     </>
    
   );

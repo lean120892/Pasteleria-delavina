@@ -16,7 +16,7 @@ export default  function NavBar(){
             
             <div>
                 <ul className='accesos-navbar'>
-                    <li><a href=''>Compreas</a></li>
+                    <li><a href=''>Compras</a></li>
                     <li><a href=''>Nosotros</a></li>
                     <li><a href=''>Productos</a></li>
                 </ul>
