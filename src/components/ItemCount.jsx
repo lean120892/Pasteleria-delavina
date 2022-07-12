@@ -1,3 +1,9 @@
+
+/**
+  Espacio destinado al contador de cantidad de productos
+  y al boton agregar.
+ */
+
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -5,7 +11,7 @@ import './ItemCount.css'
 
 
 
-function ItemCount({stock,initial}) {
+function ItemCount({id,stock,initial}) {
  
   const  [cantProducto, setCantProducto] = useState(parseInt(initial));
   

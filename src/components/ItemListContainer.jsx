@@ -1,24 +1,45 @@
 import React from 'react'
 import './ItemListContainer.css'
-import ItemCount from './ItemCount';
+import ItemList from './ItemList';
+import productos from '../utils/Productos'
+import { useState } from 'react';
 
- const ItemListContainer = (props) =>{
+ const ItemListContainer = () =>{
+
+    const [listaProductos, setListaProductos]= useState([])
+    let traerProductos = ()=>{
+       return new Promise ( (resolve, reject)=>{
+           
+        setTimeout( ()=>{
+                resolve(productos)
+            },2000 );
+        } );
+    }
+
+    traerProductos()
+        .then( (res)=>{setListaProductos(res)})
+        .catch( ()=>{alert("No se encontraron productos")})
+       
+    
 
     return(
-    
-            <div className="cardContainer">
-                <div className='tituloContainer'>
-                    {props.titulo}
-                </div>
-                <div className='cuerpoContainer'>
-                    {props.cuerpo}
-                </div>
-                <div> {props.stock}</div>
-                <ItemCount stock = "3" initial ="1"/>
-                
-            </div>
         
-        
+        <div className="Container">
+            {
+                listaProductos.map( (data) =>
+                <ItemList
+                    key ={data.id}
+                    id = {data.id}
+                    title = {data.title}
+                    description = {data.description}
+                    price = {data.price}
+                    stock ={data.stock}
+                    pictureUrl = {data.pictureUrl}
+                />
+                )
+            }
+           
+        </div>
     );
 };
 export default ItemListContainer;

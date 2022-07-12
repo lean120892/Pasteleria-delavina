@@ -1,0 +1,19 @@
+
+.Item{
+    border: 1px solid rgb(182, 174, 174);
+    border-radius: 5px;
+    width: 150px;
+    height: 300px;
+    box-shadow: 8px 1px 5px rgb(216, 204, 204);
+}
+    .Item-1{
+        width: 100%;
+        box-sizing: content-box;
+        height: 80%;
+    }
+    .Item-2{
+        border-top: 0.5px solid blanchedalmond;
+        width: 100%;
+        box-sizing: content-box;
+        height: 20%;
+    }

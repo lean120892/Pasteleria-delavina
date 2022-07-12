@@ -7,14 +7,7 @@ function App() {
   return (
     <>
       <NavBar/> 
-    
-        <ItemListContainer
-          titulo = "Producto 1"
-          cuerpo = "Contenido de la tarjeta"
-         
-      ></ItemListContainer>
-
-
+      <ItemListContainer/>
     </>
    
   );
