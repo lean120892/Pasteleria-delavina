@@ -11,22 +11,24 @@ import './ItemCount.css'
 
 
 
-function ItemCount({id,stock,initial}) {
+function ItemCount({stock,initial}) {
+
  
   const  [cantProducto, setCantProducto] = useState(parseInt(initial));
-  
+
+  const [botonState, setBotonState] = useState();
+
   useEffect( ()=>{
-      let BotonAdd =document.getElementById("BotonAdd");
-      if(stock == 0 || cantProducto == 0){
-        BotonAdd.disabled =true;
+    if(parseInt(stock) >= 1 && cantProducto >= 1){
+      setBotonState(false);
+    }
+      else{
+        setBotonState(true);
       }
-        else{
-          BotonAdd.disabled =false;
-        }
-  },[stock, cantProducto]);
 
-  const botonSumar = ()=>{       
+  }, [stock,cantProducto]);
 
+  const botonSumar = (e)=>{       
     if(cantProducto < parseInt(stock) ){
       setCantProducto (cantProducto +1);
     }
@@ -42,7 +44,7 @@ function ItemCount({id,stock,initial}) {
   }
 
   const onAdd = ()=>{
-    
+  
       alert("Se agregaron "+ ""+ cantProducto +" productos" )
     
     
@@ -51,12 +53,13 @@ function ItemCount({id,stock,initial}) {
     <div className='ItemCountContainer'>
         
         <div className='ItemCountainer-Contador'>
-          <button  onClick={botonSumar}> + </button>
+          <button disabled={botonState} onClick={botonSumar}> + </button>
           <p>{cantProducto}</p>
-          <button onClick={botonRestar}> - </button>
+          <button disabled={botonState} onClick={botonRestar}> - </button>
         </div>
         
-        <button id ="BotonAdd" onClick={onAdd} > Agregar</button>
+        <button id ="BotonAdd" disabled={botonState} onClick={onAdd} > Agregar</button>
+
         
 
     </div>

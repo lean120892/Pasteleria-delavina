@@ -6,7 +6,7 @@
         title:"Postre 1",
         description:"Descripcion",
         price:"140",
-        stock:"5",
+        stock:"1",
         pictureUrl:"https://cdn.pixabay.com/photo/2022/02/06/17/54/cake-6997783_960_720.png"
     },
 
@@ -16,7 +16,7 @@
         title:"Postre 2",
         description:"Descripcion",
         price:"140",
-        stock:"0",
+        stock:"2",
         pictureUrl:"https://juquilitapasteles.com/img/chocolate/telarana.png"
     },
 
@@ -36,7 +36,7 @@
         title:"Postre 4",
         description:"Descripcion",
         price:"140",
-        stock:"3",
+        stock:"0",
         pictureUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ-MyNIm3-R0ZabI4B0mYMZN2JkSKq81IZWg&usqp=CAU"
     }
 ]
