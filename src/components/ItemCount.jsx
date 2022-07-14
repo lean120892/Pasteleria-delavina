@@ -53,7 +53,7 @@ function ItemCount({stock,initial}) {
     <div className='ItemCountContainer'>
         
         <div className='ItemCountainer-Contador'>
-          <button disabled={botonState} onClick={botonSumar}> + </button>
+          <button  onClick={botonSumar}> + </button>
           <p>{cantProducto}</p>
           <button disabled={botonState} onClick={botonRestar}> - </button>
         </div>

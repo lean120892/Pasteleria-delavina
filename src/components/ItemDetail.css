@@ -1,0 +1,24 @@
+
+
+.ItemDetail{
+    border: 1px solid rgb(182, 174, 174);
+    border-radius: 5px;
+    box-shadow: 8px 1px 5px rgb(216, 204, 204);
+    box-sizing: border-box;
+    width: 700px;
+    height: 500px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+    gap:20px
+
+}
+.ItemDetail-Imd{
+    border: 1px solid rgb(182, 174, 174);
+    width: 400px;
+    height: 400px;
+}
+    .ItemDetail-Imd img{
+        width: 100%;
+        height: 100%;
+    }

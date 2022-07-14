@@ -2,24 +2,28 @@ import React from 'react'
 import './ItemListContainer.css'
 import ItemList from './ItemList';
 import productos from '../utils/Productos'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
  const ItemListContainer = () =>{
 
     const [listaProductos, setListaProductos]= useState([])
-    let traerProductos = ()=>{
-       return new Promise ( (resolve, reject)=>{
-           
-        setTimeout( ()=>{
-                resolve(productos)
-            },2000 );
-        } );
-    }
+    useEffect( ()=>{
 
-    traerProductos()
-        .then( (res)=>{setListaProductos(res)})
-        .catch( ()=>{alert("No se encontraron productos")})
-       
+        let traerProductos = ()=>{
+            return new Promise ( (resolve, reject)=>{
+                
+             setTimeout( ()=>{
+                     resolve(productos)
+                 },1000 );
+             } );
+         }
+     
+         traerProductos()
+             .then( (res)=>{setListaProductos(res)})
+             .catch( ()=>{alert("No se encontraron productos")})
+            
+         
+    }, [listaProductos] );
     
 
     return(
