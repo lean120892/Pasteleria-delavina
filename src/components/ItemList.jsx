@@ -15,6 +15,7 @@ const ItemList = (props)=>{
                     image={props.pictureUrl}
                     title ={props.title}
                     stock={props.stock}
+                    id = {props.id}
                 />
             </div>
             <div className="Item-2">

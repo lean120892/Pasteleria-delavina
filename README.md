@@ -1,3 +1,27 @@
+
+# My Pasteleria
+My Pasteleria es un proyecto cuyo fin es realizar un E-comerce de productos de pasteleria, ventas, recetas, etc.
+Un proyecto creado en React
+
+
+## Antes de empezar
+Se debe incluir las siguientes librerias:
+    --> react-icons ### `npm install react-icons --save`
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+## Para desarrolladores
+ --> El listado de productos se obtiene desde el archivo Productos.js ### `src/utils/Productos.js`
+ --> El archivo Funciones.js ### `src/funciones/Funciones.js` contiene las funciones .JS que se encargan de procesar los datos que luego se reenderizan.
+
+    Funciones.js se encarga de obtener los datos de Productos.js simulando asincronia
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

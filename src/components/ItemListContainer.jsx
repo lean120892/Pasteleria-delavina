@@ -1,29 +1,28 @@
 import React from 'react'
 import './ItemListContainer.css'
 import ItemList from './ItemList';
-import productos from '../utils/Productos'
 import { useState, useEffect } from 'react';
+import {useParams} from 'react-router';
+import {getProductos} from './funciones/Funciones.js'
+
 
  const ItemListContainer = () =>{
 
     const [listaProductos, setListaProductos]= useState([])
+    const {id} = useParams();
     useEffect( ()=>{
 
-        let traerProductos = ()=>{
-            return new Promise ( (resolve, reject)=>{
-                
-             setTimeout( ()=>{
-                     resolve(productos)
-                 },1000 );
-             } );
-         }
-     
-         traerProductos()
-             .then( (res)=>{setListaProductos(res)})
-             .catch( ()=>{alert("No se encontraron productos")})
-            
-         
-    }, [listaProductos] );
+    if (id === undefined){
+        getProductos(1000)
+            .then( (res)=>{ setListaProductos(res) })
+            .catch( ()=>{alert("No se encontraron productos")})
+    }else{
+        getProductos(1000)
+            .then( (res)=>{ setListaProductos(res.filter(item=> item.category === id)) })
+            .catch( ()=>{alert("No se encontraron productos")})
+        }
+    
+    }, [listaProductos,id] );
     
 
     return(

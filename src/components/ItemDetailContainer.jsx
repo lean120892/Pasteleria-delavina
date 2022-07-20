@@ -1,30 +1,23 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import './ItemDetailContainer.css'
-import productos from '../utils/Productos'
 import ItemDetail from './ItemDetail';
-const id =2;
+import {useParams} from 'react-router';
+import {getProductos} from './funciones/Funciones.js'
 
-function ItemDetailContainer(props) {
+
+
+function ItemDetailContainer() {
   const [detail, setDetail] = useState([]);
+  const {id} = useParams();
+
   useEffect( ()=>{
-    let getProductos = ()=>{
 
-    return new Promise (  (resolve, rejet)=>{
-        setTimeout(  ()=>{ 
-          resolve(productos )          
-             },1000 );
-    } );
-    }
-    getProductos()
-    .then( (res)=>{
-      setDetail(res.filter( item=> parseInt(item.id)==id))
-    // console.log(producto[0].id)
-    } )
-    .catch( ()=>{console.log("No se encontró el Producto")} )
-
-      
-  }, [] );
+    getProductos(1000)
+      .then( (res)=>{setDetail(res.filter( item=> item.id === id))})
+      .catch( ()=>{console.log("No se encontró el Producto")} )
+    
+  }, [id] );
 
     
   return (
