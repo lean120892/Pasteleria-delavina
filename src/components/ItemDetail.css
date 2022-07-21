@@ -1,6 +1,8 @@
 
 
 .ItemDetail{
+    padding-left: 10px;
+    padding-top: 10px;
     border: 1px solid rgb(182, 174, 174);
     border-radius: 5px;
     box-shadow: 8px 1px 5px rgb(216, 204, 204);
@@ -10,15 +12,46 @@
     margin-left: 30px;
     display: flex;
     flex-direction: row;
-    gap:20px
+    gap:10px
 
 }
 .ItemDetail-Imd{
-    border: 1px solid rgb(182, 174, 174);
+    border: 1px solid rgba(202, 199, 199, 0.932);
+    
     width: 400px;
     height: 400px;
+    border-radius: 50%;
+    overflow: hidden;
+
 }
     .ItemDetail-Imd img{
         width: 100%;
         height: 100%;
+        
+    }
+
+.ItemDetail-Info{
+    width: 300px;
+    height: 100%;
+    padding-right: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+    .Info-titulo{
+        text-align: center;
+        color:red;
+    }
+    .Info-Descripcion{
+        text-align:start;
+        box-sizing: border-box;
+        border: 1px solid rgb(182, 174, 174);
+        border-radius: 5px;
+
+
+    }
+    .Info-Precio{
+        text-decoration:solid;
     }

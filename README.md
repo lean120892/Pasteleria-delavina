@@ -3,6 +3,8 @@
 My Pasteleria es un proyecto cuyo fin es realizar un E-comerce de productos de pasteleria, ventas, recetas, etc.
 Un proyecto creado en React
 
+# Gif
+https://drive.google.com/file/d/17r5PbvwtGYeAtrisnSxdUn0h2z-ebPqT/view?usp=sharing
 
 ## Antes de empezar
 Se debe incluir las siguientes librerias:
