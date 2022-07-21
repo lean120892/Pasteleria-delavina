@@ -4,19 +4,16 @@
   y al boton agregar.
  */
 
-import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect,useState } from 'react'
+import{Link} from 'react-router-dom'
 import './ItemCount.css'
 
 
 
 function ItemCount({stock,initial}) {
-
- 
   const  [cantProducto, setCantProducto] = useState(parseInt(initial));
-
   const [botonState, setBotonState] = useState();
+  const [agregado , setAgregado] = useState(true);
 
   useEffect( ()=>{
     if(parseInt(stock) >= 1 && cantProducto >= 1){
@@ -34,6 +31,7 @@ function ItemCount({stock,initial}) {
     }
       else{
         alert("No disponemos de esa cantidad")
+        setAgregado(true);
       }
 
   }
@@ -46,23 +44,33 @@ function ItemCount({stock,initial}) {
   const onAdd = ()=>{
   
       alert("Se agregaron "+ ""+ cantProducto +" productos" )
-    
-    
+      setAgregado(false)
+
+  }
+  const irAlCarrito = ()=>{
+    setAgregado(true)
+  
   }
   return (
-    <div className='ItemCountContainer'>
-        
-        <div className='ItemCountainer-Contador'>
-          <button  onClick={botonSumar}> + </button>
-          <p>{cantProducto}</p>
-          <button disabled={botonState} onClick={botonRestar}> - </button>
+    <>
+    { agregado
+
+      ?<div className='ItemCountContainer' >
+          <div className='ItemCountainer-Contador'>
+                <button  onClick={botonSumar}> + </button>
+                <p>{cantProducto}</p>
+                <button disabled={botonState} onClick={botonRestar}> - </button>
+          </div>
+          <button id ="BotonAdd" disabled={botonState} onClick={onAdd} > Agregar</button>
         </div>
-        
-        <button id ="BotonAdd" disabled={botonState} onClick={onAdd} > Agregar</button>
+      :<div>
+         <button onClick={irAlCarrito}><Link to="/cart">Ir al Carrito</Link></button>
+         <button><Link to="/">Seguir Comprando</Link></button>
+      </div>
+    }
+    </>
+    
 
-        
-
-    </div>
   )
 }
 

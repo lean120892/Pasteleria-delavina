@@ -18,7 +18,7 @@ function ItemDetail (props){
                 <div className="Info-Precio">Precio: ${props.price}</div>
                 <div className="Info-Stock">Stock: {props.stock}</div>
                 <div><ItemCount
-                     id ={props.id} stock={props.stock} initial ="1"
+                     id ={props.id} stock={props.stock} initial ="0"
                 /></div> 
 
             </div>
