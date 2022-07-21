@@ -5,6 +5,10 @@ import ItemCount from "./ItemCount";
 
 
 function ItemDetail (props){
+    let inicial =0;
+    if(props.stock !=0){
+         inicial=1;
+    } 
     return(
        <div className="ItemDetail">
             <div className="ItemDetail-Imd">
@@ -18,7 +22,7 @@ function ItemDetail (props){
                 <div className="Info-Precio">Precio: ${props.price}</div>
                 <div className="Info-Stock">Stock: {props.stock}</div>
                 <div><ItemCount
-                     id ={props.id} stock={props.stock} initial ="0"
+                     id ={props.id} stock={props.stock} initial ={inicial}
                 /></div> 
 
             </div>

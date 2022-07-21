@@ -5,7 +5,10 @@ import ItemCount from './ItemCount'
 
 
 const ItemList = (props)=>{
-
+    let inicial =0;
+    if(props.stock !=0){
+         inicial=1;
+    } 
 
     return(
         <div className="Item">
@@ -18,7 +21,7 @@ const ItemList = (props)=>{
                 />
             </div>
             <div className="Item-2">
-                <ItemCount id ={props.id} stock={props.stock} initial ="1"/>
+                <ItemCount id ={props.id} stock={props.stock} initial ={inicial}/>
             </div>
 
         </div>

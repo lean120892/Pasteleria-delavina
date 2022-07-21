@@ -23,7 +23,7 @@ function ItemCount({stock,initial}) {
         setBotonState(true);
       }
 
-  }, [stock,cantProducto]);
+  }, [stock,cantProducto,agregado]);
 
   const botonSumar = (e)=>{       
     if(cantProducto < parseInt(stock) ){
@@ -48,7 +48,7 @@ function ItemCount({stock,initial}) {
 
   }
   const irAlCarrito = ()=>{
-    setAgregado(true)
+    setAgregado(!agregado)
   
   }
   return (
@@ -65,7 +65,7 @@ function ItemCount({stock,initial}) {
         </div>
       :<div>
          <button onClick={irAlCarrito}><Link to="/cart">Ir al Carrito</Link></button>
-         <button><Link to="/">Seguir Comprando</Link></button>
+         <button onClick={irAlCarrito}><Link to="/">Seguir Comprando</Link></button>
       </div>
     }
     </>
