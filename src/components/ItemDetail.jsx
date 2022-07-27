@@ -22,7 +22,7 @@ function ItemDetail (props){
                 <div className="Info-Precio">Precio: ${props.price}</div>
                 <div className="Info-Stock">Stock: {props.stock}</div>
                 <div><ItemCount
-                     id ={props.id} stock={props.stock} initial ={inicial}
+                     props ={props }id ={props.id} stock={props.stock} initial ={inicial}
                 /></div> 
 
             </div>

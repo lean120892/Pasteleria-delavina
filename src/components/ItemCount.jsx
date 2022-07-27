@@ -4,16 +4,19 @@
   y al boton agregar.
  */
 
-import React, { useEffect,useState } from 'react'
+import React, { useEffect,useState,useContext  } from 'react'
+import { CartContext } from './CartContext'
 import{Link} from 'react-router-dom'
 import './ItemCount.css'
 
 
 
-function ItemCount({stock,initial}) {
+function ItemCount({props,id,stock,initial}) {
+  const Productos = props;
   const  [cantProducto, setCantProducto] = useState(parseInt(initial));
   const [botonState, setBotonState] = useState();
   const [agregado , setAgregado] = useState(true);
+  const test = useContext(CartContext)
 
   useEffect( ()=>{
     if(parseInt(stock) >= 1 && cantProducto >= 1){
@@ -41,10 +44,15 @@ function ItemCount({stock,initial}) {
     }
   }
 
-  const onAdd = ()=>{
+  const onAdd = (cantidad)=>{
   
-      alert("Se agregaron "+ ""+ cantProducto +" productos" )
+      alert("Se agregaron "+ ""+ cantidad +" productos" )
       setAgregado(false)
+      let ProductoSeleccionado = Productos
+      ProductoSeleccionado.push(cantProducto)
+      console.log(Productos)
+      console.log(ProductoSeleccionado)
+      test.addToCart(props)
 
   }
   const irAlCarrito = ()=>{
@@ -61,7 +69,7 @@ function ItemCount({stock,initial}) {
                 <p>{cantProducto}</p>
                 <button disabled={botonState} onClick={botonRestar}> - </button>
           </div>
-          <button id ="BotonAdd" disabled={botonState} onClick={onAdd} > Agregar</button>
+          <button id ="BotonAdd" disabled={botonState} onClick={()=>{onAdd(cantProducto)}} > Agregar</button>
         </div>
       :<div>
          <button onClick={irAlCarrito}><Link to="/cart">Ir al Carrito</Link></button>

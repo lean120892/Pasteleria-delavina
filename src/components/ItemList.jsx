@@ -21,7 +21,7 @@ const ItemList = (props)=>{
                 />
             </div>
             <div className="Item-2">
-                <ItemCount id ={props.id} stock={props.stock} initial ={inicial}/>
+                <ItemCount props={props} id ={props.id} stock={props.stock} initial ={inicial}/>
             </div>
 
         </div>
