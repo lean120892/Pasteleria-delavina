@@ -1,13 +1,14 @@
 
 .contenedor-navbar{
+    background-color: bisque;
+    box-shadow: 0 1px 11px 3px rgb(0 0 0/21%);
     box-sizing: border-box;
     margin: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: bisque;
-    box-shadow: 0 1px 11px 3px rgb(0 0 0/21%);
+
 
 }
 .titulo-navbar{
@@ -30,4 +31,8 @@
     text-decoration: none;
     list-style: none;
     color:blue;
+}
+
+.cart-navbar{
+    margin-left: 25px;
 }

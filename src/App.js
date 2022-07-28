@@ -11,7 +11,7 @@ function App() {
   return (
     <>
     <CartContextProvider >
-      <BrowserRouter>
+      <BrowserRouter >
           <NavBar/>
           <Routes>
             <Route exact path ="/" element={ <ItemListContainer/> }/>
