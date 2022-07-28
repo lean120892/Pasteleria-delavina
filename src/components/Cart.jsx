@@ -5,7 +5,7 @@ import ItemCart from './ItemCart'
 
 function Cart() {
   const test = useContext(CartContext)
-  console.log(test.carList)
+
   return (
     <>
     <div>Soy el carrito</div>
@@ -13,10 +13,13 @@ function Cart() {
     {
       test.carList.length >0 && test.carList.map( item=>(
         <ItemCart
-        image= {item.pictureUrl}
+        key={item.id}
+        id = {item.id}
+        image= {item.image}
         title= {item.title}
         price={item.price}
         stock ={item.stock}
+        cant = {item.cant}
         >
 
         </ItemCart>

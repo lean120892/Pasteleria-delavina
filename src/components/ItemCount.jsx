@@ -5,14 +5,16 @@
  */
 
 import React, { useEffect,useState,useContext  } from 'react'
+
 import { CartContext } from './CartContext'
 import{Link} from 'react-router-dom'
 import './ItemCount.css'
 
 
 
-function ItemCount({props,id,stock,initial}) {
-  const Productos = props;
+function ItemCount({props,stock,initial}) {
+
+
   const  [cantProducto, setCantProducto] = useState(parseInt(initial));
   const [botonState, setBotonState] = useState();
   const [agregado , setAgregado] = useState(true);
@@ -48,11 +50,36 @@ function ItemCount({props,id,stock,initial}) {
   
       alert("Se agregaron "+ ""+ cantidad +" productos" )
       setAgregado(false)
-      let ProductoSeleccionado = Productos
-      ProductoSeleccionado.push(cantProducto)
-      console.log(Productos)
-      console.log(ProductoSeleccionado)
-      test.addToCart(props)
+      let addIsOk = true;
+      let i =0;
+      for (const dato of test.carList){
+
+        if(dato.id == props.id){
+          console.log("Producto repetido")
+          console.log(i)
+          test.carList[i].cant = test.carList[i].cant + cantProducto;
+          console.log(test.carList[i].cant)
+          addIsOk = false
+          break
+        }
+        i++;
+        
+       }
+     if(addIsOk){
+      let ProductoSeleccionado = {
+        id: props.id,
+        title : props.title,
+        image: props.pictureUrl,
+        price: props.price,
+        stock: props.stock,
+        cant: cantProducto
+      };
+      test.addToCart(ProductoSeleccionado)
+     }
+
+
+      
+  
 
   }
   const irAlCarrito = ()=>{

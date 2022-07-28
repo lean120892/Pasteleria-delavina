@@ -2,6 +2,7 @@ import React from 'react'
 import './ItemCart.css'
 
 function ItemCart(props) {
+
   return (
     
     <div className='ItemCart-Contenedor'>
@@ -14,7 +15,7 @@ function ItemCart(props) {
         <div className='Item-Titulo'>Stock: {props.stock}</div>
       </div>
       <div className='Cart-Cont3'>
-        <span>Cantidad:</span>
+        <span>Cantidad: {props.cant}</span>
     
         <button>Eliminar Compra</button>
       </div>
