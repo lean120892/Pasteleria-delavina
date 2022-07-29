@@ -8,7 +8,30 @@ import { CartContext } from '../CartContext'
 
 export default  function NavBar(){
     const test = useContext(CartContext)
-   // console.log(test.carList.length)
+    const [cantidad, setCantidad] = useState(0);
+    useEffect( ()=>{
+        console.log(test.carList.length)
+        setCantidad(0)
+        for (let info of test.carList){
+          
+           setCantidad( cantidad + info.cant)
+          
+        }
+    
+    }, [test.carList.length]);
+    
+    /*
+    let cantidad=0;
+    let CalcularCantidad = ()=>{
+        
+        for (let info of test.carList){
+            
+            cantidad = cantidad + info.cant;
+          
+        }
+    }
+    CalcularCantidad()
+    */
     return(
 
         <div className='contenedor-navbar'>
@@ -28,7 +51,7 @@ export default  function NavBar(){
             <div className='cart-navbar'>
                 <Link to="/cart">
                     
-                    <CartWidget val = {test.carList.length}></CartWidget>
+                    <CartWidget val={cantidad} ></CartWidget>
                 </Link>
           
             </div>

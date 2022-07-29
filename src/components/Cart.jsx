@@ -1,10 +1,18 @@
 import React from 'react'
-import { useContext } from 'react'
+import { useContext,useState,useEffect } from 'react'
 import { CartContext } from './CartContext'
 import ItemCart from './ItemCart'
 
 function Cart() {
+ 
   const test = useContext(CartContext)
+  console.log(test.carList.length)
+  const [state, setState] = useState();
+  useEffect( ()=>{
+    setState(test.carList.length)
+    
+
+  }, []);
 
   return (
     <>

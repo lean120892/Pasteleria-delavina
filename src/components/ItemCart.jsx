@@ -1,7 +1,25 @@
 import React from 'react'
 import './ItemCart.css'
+import  { useEffect,useState,useContext  } from 'react'
+
+import { CartContext } from './CartContext'
 
 function ItemCart(props) {
+  const test = useContext(CartContext)
+
+  let Delete =(val)=>{
+    let i =0;
+    for (const dato of test.carList){
+
+      if(dato.id == val){
+        test.carList.splice(i,1);
+        break
+      }
+      i++;
+      
+     }
+
+  }
 
   return (
     
@@ -17,7 +35,7 @@ function ItemCart(props) {
       <div className='Cart-Cont3'>
         <span>Cantidad: {props.cant}</span>
     
-        <button>Eliminar Compra</button>
+        <button onClick={()=>{Delete(props.id)}}>Eliminar Compra</button>
       </div>
     
     

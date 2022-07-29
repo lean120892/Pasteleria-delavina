@@ -55,10 +55,7 @@ function ItemCount({props,stock,initial}) {
       for (const dato of test.carList){
 
         if(dato.id == props.id){
-          console.log("Producto repetido")
-          console.log(i)
           test.carList[i].cant = test.carList[i].cant + cantProducto;
-          console.log(test.carList[i].cant)
           addIsOk = false
           break
         }
