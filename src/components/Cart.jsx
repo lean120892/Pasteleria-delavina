@@ -19,9 +19,11 @@ function Cart() {
 
        actualizar = {()=>{changeState()}}
       */
+     
   return (
     <>
     <div>Soy el carrito</div>
+    <div><button onClick={()=>{test.deleteAllProducts()}}>Eliminar Todo</button></div>
     <hr/>
     {
      

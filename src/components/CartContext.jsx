@@ -17,8 +17,12 @@ const CartContextProvider = ({children}) =>{
 
        
     }
+    const deleteAllProducts = ()=>{
+        setCarList([]);
+        setChange(!change);
+    }
     return(
-        <CartContext.Provider value ={{carList, change, addToCart,deleteOneProduct}}>
+        <CartContext.Provider value ={{carList, change, addToCart,deleteOneProduct,deleteAllProducts}}>
             {children}
 
         </CartContext.Provider>
