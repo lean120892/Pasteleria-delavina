@@ -5,14 +5,18 @@ import  { useEffect,useState,useContext  } from 'react'
 import { CartContext } from './CartContext'
 
 function ItemCart(props) {
+  const {actualizar}= props
   const test = useContext(CartContext)
 
+
   let Delete =(val)=>{
+
     let i =0;
     for (const dato of test.carList){
 
-      if(dato.id == val){
+      if(dato.id === val){
         test.carList.splice(i,1);
+        actualizar();
         break
       }
       i++;
@@ -36,6 +40,7 @@ function ItemCart(props) {
         <span>Cantidad: {props.cant}</span>
     
         <button onClick={()=>{Delete(props.id)}}>Eliminar Compra</button>
+        
       </div>
     
     

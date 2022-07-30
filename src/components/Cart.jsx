@@ -6,36 +6,41 @@ import ItemCart from './ItemCart'
 function Cart() {
  
   const test = useContext(CartContext)
-  console.log(test.carList.length)
-  const [state, setState] = useState();
-  useEffect( ()=>{
-    setState(test.carList.length)
+  const [state, setState] = useState(test.carList.length);
+  useEffect(()=>{
+
     
+  },[state])
 
-  }, []);
-
+   const changeState = ()=>{
+      setState(test.carList.length)
+      }
   return (
     <>
     <div>Soy el carrito</div>
     <hr/>
     {
-      test.carList.length >0 && test.carList.map( item=>(
-        <ItemCart
-        key={item.id}
-        id = {item.id}
-        image= {item.image}
-        title= {item.title}
-        price={item.price}
-        stock ={item.stock}
-        cant = {item.cant}
-        >
-
-        </ItemCart>
-      ))
+     
+       test.carList.length >0  && test.carList.map( item=>(
+          <ItemCart
+          actualizar = {()=>{changeState()}}
+          key={item.id}
+          id = {item.id}
+          image= {item.image}
+          title= {item.title}
+          price={item.price}
+          stock ={item.stock}
+          cant = {item.cant}
+          >
+          </ItemCart>
+        ))
+      
+     
+    
     }
 
     </>
   )
 }
 
-export default Cart
+export default Cart 
