@@ -11,12 +11,9 @@ const CartContextProvider = ({children}) =>{
         setCarList([...carList,item])
     }
     const deleteOneProduct = (dato)=>{
-
         carList.splice(dato,1);
         setChange(!change);
-
-       
-    }
+        }
     const deleteAllProducts = ()=>{
         setCarList([]);
         setChange(!change);

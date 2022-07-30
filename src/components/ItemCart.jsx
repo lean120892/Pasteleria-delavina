@@ -1,32 +1,17 @@
 import React from 'react'
 import './ItemCart.css'
 import  { useEffect,useState,useContext  } from 'react'
+import{Link,useNavigate} from 'react-router-dom'
 
 import { CartContext } from './CartContext'
+
 
 function ItemCart(props) {
   const {actualizar}= props
   const test = useContext(CartContext)
+  const navigate = useNavigate();
 
-/*
-  let Delete =(val)=>{
-
-    let i =0;
-    for (const dato of test.carList){
-
-      if(dato.id === val){
-        test.carList.splice(i,1);
-        actualizar();
-        break
-      }
-      i++;
-      
-     }
-
-  }
-*/
 let Delete =(val)=>{
-
   let i =0;
   for (const dato of test.carList){
 
@@ -37,8 +22,13 @@ let Delete =(val)=>{
     i++;
     
    }
+}
+let GoTo = (data)=>{
+  navigate("/item/"+ data)
 
 }
+
+
   return (
     
     <div className='ItemCart-Contenedor'>
@@ -52,7 +42,8 @@ let Delete =(val)=>{
       </div>
       <div className='Cart-Cont3'>
         <span>Cantidad: {props.cant}</span>
-    
+
+        <button onClick={()=>{GoTo(props.id)}}>Ir al Producto</button>
         <button onClick={()=>{Delete(props.id)}}>Eliminar Compra</button>
         
       </div>
