@@ -7,14 +7,18 @@ function Cart() {
  
   const test = useContext(CartContext)
   const [state, setState] = useState(test.carList.length);
+  console.log(test.change)
   useEffect(()=>{
 
     
-  },[state])
-
+  },[test.change])
+/*
    const changeState = ()=>{
       setState(test.carList.length)
       }
+
+       actualizar = {()=>{changeState()}}
+      */
   return (
     <>
     <div>Soy el carrito</div>
@@ -23,7 +27,7 @@ function Cart() {
      
        test.carList.length >0  && test.carList.map( item=>(
           <ItemCart
-          actualizar = {()=>{changeState()}}
+         
           key={item.id}
           id = {item.id}
           image= {item.image}

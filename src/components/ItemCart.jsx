@@ -8,7 +8,7 @@ function ItemCart(props) {
   const {actualizar}= props
   const test = useContext(CartContext)
 
-
+/*
   let Delete =(val)=>{
 
     let i =0;
@@ -24,7 +24,21 @@ function ItemCart(props) {
      }
 
   }
+*/
+let Delete =(val)=>{
 
+  let i =0;
+  for (const dato of test.carList){
+
+    if(dato.id === val){
+      test.deleteOneProduct(i)
+      break
+    }
+    i++;
+    
+   }
+
+}
   return (
     
     <div className='ItemCart-Contenedor'>

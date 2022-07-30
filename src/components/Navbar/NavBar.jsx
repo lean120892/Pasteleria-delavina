@@ -10,7 +10,7 @@ export default  function NavBar(){
     const test = useContext(CartContext)
     const [cantidad, setCantidad] = useState(0);
     useEffect( ()=>{
-        setCantidad(0)
+        setCantidad(0);
         for (let info of test.carList){
           
            setCantidad( cantidad + info.cant)
@@ -18,7 +18,7 @@ export default  function NavBar(){
           
         }
     
-    }, [test.carList]);
+    }, [test.change,test.carList]);
     
 
     return(
