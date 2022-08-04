@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import './ItemDetailContainer.css'
 import ItemDetail from './ItemDetail';
 import {useParams} from 'react-router';
-import {getProductos} from './funciones/Funciones.js'
+import {FirebaseRead} from './funciones/Funciones.js'
+
 
 
 
@@ -12,14 +13,25 @@ function ItemDetailContainer() {
   const {id} = useParams();
 
   useEffect( ()=>{
-
+/*
     getProductos(1000)
       .then( (res)=>{setDetail(res.filter( item=> item.id === id))})
       .catch( ()=>{console.log("No se encontró el Producto")} )
-    
-  }, [id] );
+   */
+  
+      FirebaseRead() 
+      .then( (res)=>{setDetail(res.filter( item=> item.id === id))})
+      .catch( ()=>{console.log("No se encontró el Producto")} )
 
-    
+      
+      }, [id] );
+
+
+console.log(FirebaseRead())
+
+
+
+ 
   return (
     <div>
       {

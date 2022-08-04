@@ -3,25 +3,30 @@ import './ItemListContainer.css'
 import ItemList from './ItemList';
 import { useState, useEffect } from 'react';
 import {useParams} from 'react-router';
-import {getProductos} from './funciones/Funciones.js'
+import {FirebaseRead} from './funciones/Funciones.js'
 
 
  const ItemListContainer = () =>{
 
     const [listaProductos, setListaProductos]= useState([])
     const {id} = useParams();
+
+    
     useEffect( ()=>{
 
     if (id === undefined){
-        getProductos(1000)
+        FirebaseRead()
             .then( (res)=>{ setListaProductos(res) })
             .catch( ()=>{alert("No se encontraron productos")})
     }else{
-        getProductos(1000)
+        FirebaseRead()
             .then( (res)=>{ setListaProductos(res.filter(item=> item.category === id)) })
             .catch( ()=>{alert("No se encontraron productos")})
         }
     
+
+
+
     }, [listaProductos,id] );
     
 
