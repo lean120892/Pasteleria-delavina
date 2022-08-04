@@ -21,6 +21,7 @@ function ItemDetailContainer() {
   
       FirebaseOneProduct(id) 
       .then( (res)=>{setDetail(res)})
+      .then( (res)=>{console.log(res)})
       .catch( ()=>{console.log("No se encontró el Producto")} )
 
       
@@ -34,20 +35,20 @@ function ItemDetailContainer() {
  
   return (
     <div>
-      {
-        detail.map( (data)=>
+      
+     
           <ItemDetail
-            key ={data.id}
-            id = {data.id}
-            title = {data.title}
-            description = {data.description}
-            price = {data.price}
-            stock ={data.stock}
-            pictureUrl = {data.pictureUrl}
+            key ={detail.id}
+            id = {detail.id}
+            title = {detail.title}
+            description = {detail.description}
+            price = {detail.price}
+            stock ={detail.stock}
+            pictureUrl = {detail.pictureUrl}
           />
-         )
+         
 
-      }
+      
      
     </div>
 

@@ -36,7 +36,7 @@ function ItemCount({props,stock,initial}) {
     }
       else{
         alert("No disponemos de esa cantidad")
-        setAgregado(true);
+        setAgregado(!agregado);
       }
 
   }
@@ -49,7 +49,7 @@ function ItemCount({props,stock,initial}) {
   const onAdd = (cantidad)=>{
   
       alert("Se agregaron "+ ""+ cantidad +" productos" )
-      setAgregado(false)
+      setAgregado(!agregado)
       let addIsOk = true;
       let i =0;
       for (const dato of test.carList){
@@ -81,6 +81,7 @@ function ItemCount({props,stock,initial}) {
   }
   const irAlCarrito = ()=>{
     setAgregado(!agregado)
+
   
   }
   return (
