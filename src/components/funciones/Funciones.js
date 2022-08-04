@@ -16,7 +16,7 @@ function getProductos(time) {
 
 export{getProductos};
 */
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs,query,where } from "firebase/firestore";
 import {db} from './Firebase'
 
 //Obtener todos los productos
@@ -32,9 +32,20 @@ return dataFromFirestore
 }
 
 // Obtener un producto mediante ID
-const FirebaseOneProduct = async ()=>{
-
-    
+const FirebaseOneProduct = async (id)=>{
+let q;
+if(id){
+    q= query(collection(db, "Productos"), where ('categoryId', '==', id))
+    console.log(q)
 }
+const querySnapshot = await getDocs(q);
+const dataFromFirestore = querySnapshot.docs.map(doc =>({
+        id: doc.id,
+        ...doc.data()
+    }))
+    return dataFromFirestore;
+}
+    
 
-export  {FirebaseRead} 
+
+export  {FirebaseRead, FirebaseOneProduct} 
