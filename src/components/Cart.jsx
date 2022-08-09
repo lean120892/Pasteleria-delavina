@@ -1,9 +1,11 @@
 import React from 'react'
 import{Link,useNavigate} from 'react-router-dom'
-import { useContext,useState,useEffect } from 'react'
+import { useContext } from 'react'
 import { CartContext } from './CartContext'
+import { serverTimestamp} from "firebase/firestore";
 import ItemCart from './ItemCart'
 import './Cart.css'
+import {createOrderInFirebase, updateElementInFirebase} from './funciones/Funciones'
 
 function Cart() {
  let subTotal=0;
@@ -19,15 +21,35 @@ function Cart() {
   CalcSubTotal();
 
   const FinalizarCompra = ()=>{
-    alert ("Gracias por Comprar");
+    let itemsForDB = test.carList.map(item=>({
+      id: item.id,
+      title: item.title,
+      price: item.price,
+      qty: item.cant
+
+    }))
+    let order = {
+      buyer:{
+        email: "comprador1@compra.com",
+        name: "Gustavo",
+        phone:"0303456"
+      },
+      date: serverTimestamp(),
+      items: itemsForDB,
+      total:subTotal
+      
+    }
+    console.log(order)
+    createOrderInFirebase(order)
+      .then (result => alert ("Gracias por Comprar" + result.id))
+      .catch(e=> console.log(e))
+
+    //alert ("Gracias por Comprar");
+    updateElementInFirebase(test.carList);
     test.deleteAllProducts();
     navigate("/")
  
   }
-
-
-
-
 
 
   return (

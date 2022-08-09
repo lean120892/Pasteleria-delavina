@@ -16,13 +16,17 @@ function getProductos(time) {
 
 export{getProductos};
 */
-import { collection, getDocs} from "@firebase/firestore";
-import { doc,getDoc} from "firebase/firestore";
+
+import { collection, getDocs,query, orderBy, updateDoc, increment} from "@firebase/firestore";
+import { doc,getDoc,setDoc} from "firebase/firestore";
 import {db} from './Firebase'
+
+
 
 //Obtener todos los productos
 const FirebaseRead = async ()=>{
-    const querySnapshot = await getDocs(collection(db, "Productos"));
+    let q = query(collection(db,"Productos") ,orderBy('title'));
+    const querySnapshot = await getDocs(q) ;
     const dataFromFirestore = querySnapshot.docs.map((doc) =>({
       id: doc.id,
       ...doc.data()
@@ -32,7 +36,8 @@ return dataFromFirestore
 
 }
 
-// Obtener un producto mediante ID
+
+// Obtener un unico producto mediante ID
 const FirebaseOneProduct = async (idItem)=>{
     const docRef = doc(db, "Productos",idItem);
     const docSnap = await getDoc(docRef);
@@ -46,7 +51,26 @@ const FirebaseOneProduct = async (idItem)=>{
     }
 
 }
-    
+
+//Agregar elementos a la base de datos
+//Crear nueva colecccion
+ const createOrderInFirebase = async (obj)=>{
+    const newOrderRef = doc(collection(db,"Orders"));
+    await setDoc(newOrderRef, obj);
+    return newOrderRef;
+ }
+
+ //Modificar un elemento de la base de datos
+
+const updateElementInFirebase = async (elementos)=>{
+    elementos.forEach( async (item)=>{
+        const itemRef = doc(db,'Products', item.id);
+        await updateDoc(itemRef, {
+            stock:increment(-item.qty)
+        })
+    } )
+
+}
 
 
-export  {FirebaseRead, FirebaseOneProduct} 
+export  {FirebaseRead, FirebaseOneProduct, createOrderInFirebase, updateElementInFirebase} 
