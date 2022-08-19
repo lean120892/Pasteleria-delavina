@@ -17,14 +17,15 @@ function getProductos(time) {
 export{getProductos};
 */
 
-import { collection, getDocs,query, orderBy, updateDoc, increment} from "@firebase/firestore";
-import { doc,getDoc,setDoc} from "firebase/firestore";
+import { collection, getDocs,query, orderBy, updateDoc} from "@firebase/firestore";
+import { doc,getDoc,setDoc, increment} from "firebase/firestore";
 import {db} from './Firebase'
 
 
 
 //Obtener todos los productos
 const FirebaseRead = async ()=>{
+    console.log("Lee base de datos")
     let q = query(collection(db,"Productos") ,orderBy('title'));
     const querySnapshot = await getDocs(q) ;
     const dataFromFirestore = querySnapshot.docs.map((doc) =>({
@@ -63,9 +64,12 @@ const FirebaseOneProduct = async (idItem)=>{
  //Modificar un elemento de la base de datos
 
 const updateElementInFirebase = async (elementos)=>{
+    console.log(elementos)
     elementos.forEach( async (item)=>{
-        const itemRef = doc(db,'Products', item.id);
+        const itemRef = doc(db,'Productos', item.id);
+        console.log(item.qty)
         await updateDoc(itemRef, {
+            
             stock:increment(-item.qty)
         })
     } )

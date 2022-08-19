@@ -39,14 +39,16 @@ function Cart() {
       total:subTotal
       
     }
-    console.log(order)
+    
     createOrderInFirebase(order)
       .then (result => alert ("Gracias por Comprar" + result.id))
       .catch(e=> console.log(e))
 
     //alert ("Gracias por Comprar");
-    updateElementInFirebase(test.carList);
-    test.deleteAllProducts();
+    updateElementInFirebase(test.carList) 
+    .then(test.deleteAllProducts())
+    
+    
     navigate("/")
  
   }

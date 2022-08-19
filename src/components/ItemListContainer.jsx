@@ -27,7 +27,7 @@ import {FirebaseRead} from './funciones/Funciones.js'
 
 
 
-    }, [listaProductos,id] );
+    }, [id] );
     
 
     return(
