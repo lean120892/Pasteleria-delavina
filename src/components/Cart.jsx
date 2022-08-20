@@ -21,21 +21,21 @@ function Cart() {
   CalcSubTotal();
 
   const FinalizarCompra = ()=>{
-    let itemsForDB = test.carList.map(item=>({
-      id: item.id,
-      title: item.title,
-      price: item.price,
-      qty: item.cant
-
-    }))
+   
     let order = {
       buyer:{
         email: "comprador1@compra.com",
         name: "Gustavo",
         phone:"0303456"
       },
+      items: test.carList.map(item=>({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        qty: item.cant
+  
+      })),
       date: serverTimestamp(),
-      items: itemsForDB,
       total:subTotal
       
     }
@@ -44,9 +44,10 @@ function Cart() {
       .then (result => alert ("Gracias por Comprar" + result.id))
       .catch(e=> console.log(e))
 
-    //alert ("Gracias por Comprar");
+
+    
     updateElementInFirebase(test.carList) 
-    .then(test.deleteAllProducts())
+      .then(test.deleteAllProducts())
     
     
     navigate("/")
@@ -87,8 +88,7 @@ function Cart() {
         <h3>Su Carrito se encuentra vacio</h3>
         <Link to="/"><button>Ir a Comprar!!</button></Link>
       </div>
-     
-    
+         
     }
 
     </>

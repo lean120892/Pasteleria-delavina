@@ -13,26 +13,16 @@ function ItemDetailContainer() {
   const {id} = useParams();
 
   useEffect( ()=>{
-/*
-    getProductos(1000)
-      .then( (res)=>{setDetail(res.filter( item=> item.id === id))})
-      .catch( ()=>{console.log("No se encontró el Producto")} )
-   */
-  
-      FirebaseOneProduct(id) 
+
+    FirebaseOneProduct(id) 
       .then( (res)=>{setDetail(res)})
       .then( (res)=>{console.log(res)})
       .catch( ()=>{console.log("No se encontró el Producto")} )
 
-      
-      }, [id] );
+  
+  }, [id] );
 
 
-
-
-
-
- 
   return (
     <div>
       

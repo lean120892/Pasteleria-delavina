@@ -1,21 +1,3 @@
-/*
-import productos from "../../utils/Productos";
-
-   // Funcion que obtiene la lista de todos los productos del archivo Productos.js
-
-function getProductos(time) {
-    return new Promise( (resolve, rejet)=>{
-        setTimeout( 
-            ()=>{
-                resolve(productos)
-            },time
-        )
-    }
-    );
-}
-
-export{getProductos};
-*/
 
 import { collection, getDocs,query, orderBy, updateDoc} from "@firebase/firestore";
 import { doc,getDoc,setDoc, increment} from "firebase/firestore";
@@ -64,14 +46,19 @@ const FirebaseOneProduct = async (idItem)=>{
  //Modificar un elemento de la base de datos
 
 const updateElementInFirebase = async (elementos)=>{
+    console.log("ELEMENTOS")
     console.log(elementos)
+    
     elementos.forEach( async (item)=>{
+        console.log(item)
+        
         const itemRef = doc(db,'Productos', item.id);
         console.log(item.qty)
         await updateDoc(itemRef, {
             
-            stock:increment(-item.qty)
+            stock:increment(- item.cant)
         })
+        
     } )
 
 }

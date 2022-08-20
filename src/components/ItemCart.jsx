@@ -1,13 +1,13 @@
 import React from 'react'
 import './ItemCart.css'
-import  { useEffect,useState,useContext  } from 'react'
-import{Link,useNavigate} from 'react-router-dom'
+import  { useContext  } from 'react'
+import{useNavigate} from 'react-router-dom'
 
 import { CartContext } from './CartContext'
 
 
 function ItemCart(props) {
-  const {actualizar}= props
+  
   const test = useContext(CartContext)
   const navigate = useNavigate();
 

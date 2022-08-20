@@ -11,22 +11,18 @@ import {FirebaseRead} from './funciones/Funciones.js'
     const [listaProductos, setListaProductos]= useState([])
     const {id} = useParams();
 
+        useEffect( ()=>{
+
+        if (id === undefined){
+            FirebaseRead()
+                .then( (res)=>{ setListaProductos(res) })
+                .catch( ()=>{alert("No se encontraron productos")})
+        }else{
+            FirebaseRead()
+                .then( (res)=>{ setListaProductos(res.filter(item=> item.category === id)) })
+                .catch( ()=>{alert("No se encontraron productos")})
+            }
     
-    useEffect( ()=>{
-
-    if (id === undefined){
-        FirebaseRead()
-            .then( (res)=>{ setListaProductos(res) })
-            .catch( ()=>{alert("No se encontraron productos")})
-    }else{
-        FirebaseRead()
-            .then( (res)=>{ setListaProductos(res.filter(item=> item.category === id)) })
-            .catch( ()=>{alert("No se encontraron productos")})
-        }
-    
-
-
-
     }, [id] );
     
 
