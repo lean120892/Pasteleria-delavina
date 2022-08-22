@@ -3,6 +3,9 @@ import { collection, getDocs,query, orderBy, updateDoc} from "@firebase/firestor
 import { doc,getDoc,setDoc, increment} from "firebase/firestore";
 import {db} from './Firebase'
 
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
+
 
 
 //Obtener todos los productos
@@ -60,5 +63,16 @@ const updateElementInFirebase = async (elementos)=>{
 
 }
 
+const mensaje = (texto)=>{
+    Toastify({
+        text: texto,
+        duration: 3000,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        className: 'notification my-toast'
+       
+      }).showToast();
+}
 
-export  {FirebaseRead, FirebaseOneProduct, createOrderInFirebase, updateElementInFirebase} 
+
+export  {FirebaseRead, FirebaseOneProduct, createOrderInFirebase, updateElementInFirebase, mensaje} 

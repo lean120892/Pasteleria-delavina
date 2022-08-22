@@ -5,7 +5,7 @@ import { CartContext } from './CartContext'
 import { serverTimestamp} from "firebase/firestore";
 import ItemCart from './ItemCart'
 import './Cart.css'
-import {createOrderInFirebase, updateElementInFirebase} from './funciones/Funciones'
+import {createOrderInFirebase, updateElementInFirebase, mensaje} from './funciones/Funciones'
 
 function Cart() {
  let subTotal=0;
@@ -43,7 +43,7 @@ function Cart() {
     createOrderInFirebase(order)
       .then (result => {
         updateElementInFirebase(test.carList) 
-          .then(alert ("Gracias por Comprar" + result.id))
+          .then(mensaje ("Gracias por Comprar" + result.id))
           .then(test.deleteAllProducts())
           .then(navigate("/"))
       })

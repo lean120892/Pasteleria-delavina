@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import './ItemDetailContainer.css'
 import ItemDetail from './ItemDetail';
 import {useParams} from 'react-router';
-import {FirebaseOneProduct} from './funciones/Funciones.js'
+import {FirebaseOneProduct, mensaje} from './funciones/Funciones.js'
 
 
 
@@ -16,8 +16,8 @@ function ItemDetailContainer() {
 
     FirebaseOneProduct(id) 
       .then( (res)=>{setDetail(res)})
-      .then( (res)=>{console.log(res)})
-      .catch( ()=>{console.log("No se encontró el Producto")} )
+      
+      .catch( ()=>{mensaje("No se encontró el Producto")} )
 
   
   }, [id] );

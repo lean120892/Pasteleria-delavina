@@ -3,6 +3,7 @@ import React, { useEffect,useState,useContext  } from 'react'
 import { CartContext } from './CartContext'
 import{Link} from 'react-router-dom'
 import './ItemCount.css'
+import {mensaje} from './funciones/Funciones.js'
 
 
 
@@ -27,7 +28,7 @@ function ItemCount({props,stock,initial}) {
       setCantProducto (cantProducto +1);
     }
       else{
-        alert("No disponemos de esa cantidad")
+        mensaje("No disponemos de esa cantidad")
         setAgregado(!agregado);
       }
 
@@ -40,7 +41,7 @@ function ItemCount({props,stock,initial}) {
 
   const onAdd = (cantidad)=>{
   
-      alert("Se agregaron "+ ""+ cantidad +" productos" )
+     mensaje("Se agregaron "+ ""+ cantidad +" productos" )
       setAgregado(!agregado)
       let addIsOk = true;
       let i =0;

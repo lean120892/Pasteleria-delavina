@@ -3,7 +3,7 @@ import './ItemListContainer.css'
 import ItemList from './ItemList';
 import { useState, useEffect } from 'react';
 import {useParams} from 'react-router';
-import {FirebaseRead} from './funciones/Funciones.js'
+import {FirebaseRead, mensaje} from './funciones/Funciones.js'
 
 
  const ItemListContainer = () =>{
@@ -16,11 +16,11 @@ import {FirebaseRead} from './funciones/Funciones.js'
         if (id === undefined){
             FirebaseRead()
                 .then( (res)=>{ setListaProductos(res) })
-                .catch( ()=>{alert("No se encontraron productos")})
+                .catch( ()=>{mensaje("No se encontraron productos")})
         }else{
             FirebaseRead()
                 .then( (res)=>{ setListaProductos(res.filter(item=> item.category === id)) })
-                .catch( ()=>{alert("No se encontraron productos")})
+                .catch( ()=>{mensaje("No se encontraron productos")})
             }
     
     }, [id] );
