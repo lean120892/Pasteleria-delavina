@@ -5,23 +5,21 @@ import{Link} from 'react-router-dom'
 import React, { useEffect,useState,useContext  } from 'react'
 import { CartContext } from '../CartContext'
 
-  export default function NavBar(){
+
+function NavBar(){
     const test = useContext(CartContext)
     const [cantidad, setCantidad] = useState(0);
-    const [actualizar,setActualizar]= useState(false)
-    
-  
-   
+
+       
     useEffect( ()=>{
-        console.log(test)
+  
         let parcial =0;
         for (let info of test.carList){
           parcial = parcial + info.cant
-          
         }
         setCantidad( parcial)
     
-    }, [test.change,test.carList, test.carList.length]);
+    }, [test.change, test.carList.length]);
     
 
     return(
@@ -52,3 +50,5 @@ import { CartContext } from '../CartContext'
 
     );
 }
+export default  NavBar
+

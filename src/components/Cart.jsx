@@ -41,16 +41,13 @@ function Cart() {
     }
     
     createOrderInFirebase(order)
-      .then (result => alert ("Gracias por Comprar" + result.id))
+      .then (result => {
+        updateElementInFirebase(test.carList) 
+          .then(alert ("Gracias por Comprar" + result.id))
+          .then(test.deleteAllProducts())
+          .then(navigate("/"))
+      })
       .catch(e=> console.log(e))
-
-
-    
-    updateElementInFirebase(test.carList) 
-      .then(test.deleteAllProducts())
-    
-    
-    navigate("/")
  
   }
 

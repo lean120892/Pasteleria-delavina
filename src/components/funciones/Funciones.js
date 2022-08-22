@@ -46,12 +46,9 @@ const FirebaseOneProduct = async (idItem)=>{
  //Modificar un elemento de la base de datos
 
 const updateElementInFirebase = async (elementos)=>{
-    console.log("ELEMENTOS")
-    console.log(elementos)
     
     elementos.forEach( async (item)=>{
-        console.log(item)
-        
+    
         const itemRef = doc(db,'Productos', item.id);
         console.log(item.qty)
         await updateDoc(itemRef, {

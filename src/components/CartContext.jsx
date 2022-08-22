@@ -9,6 +9,7 @@ const CartContextProvider = ({children}) =>{
    
     const addToCart = (item)=>{
         setCarList([...carList,item])
+        setChange(!change);
     }
     const deleteOneProduct = (dato)=>{
         carList.splice(dato,1);
@@ -18,6 +19,7 @@ const CartContextProvider = ({children}) =>{
         setCarList([]);
         setChange(!change);
     }
+  
     return(
         <CartContext.Provider value ={{carList, change, addToCart,deleteOneProduct,deleteAllProducts}}>
             {children}
