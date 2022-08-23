@@ -1,11 +1,13 @@
 .Item-Contenedor{
-    width: 100%;
-    height: 100%;
+    width:100%;
+    height:100%;
     box-sizing: border-box;
     align-items: center;
     display: flex;
     flex-direction: column;
     gap: 3px;
+    background-color: rgba(34, 33, 33, 0.664);
+    border-radius: 5px;
    
 }
     .Item-Imagen{
@@ -17,18 +19,26 @@
         width: 100%;
         height: 30px;
         box-sizing:border-box;
-        background-color: beige;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-size: 14px;
+        background-color: rgba(34, 33, 33, 0.664);
+        font-family: 'Dancing Script', cursive;
+        font-size: 24px;
         text-align: center;
+        color: whitesmoke;
 
-
-
-        color: black;
-
+    }
+    .Item-Stock{
+        text-align: center;
+        color: whitesmoke;
+        font-size: 16px;
     }
 
     .Item-Boton{
-
-        color: red;
+        background-color: rgba(34, 33, 33, 0.664);
+        border: 1px solid rgb(182, 174, 174);
+        border-radius: 5px;
+        text-align: center;
+        color: whitesmoke;
+        font-size: 14px;
+        width: 90%;
+        margin-bottom: 5px;
     }

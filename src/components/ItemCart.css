@@ -2,18 +2,18 @@
     height: 200px;
     width: 900px;
     border: 1px solid rgb(182, 174, 174);
-    box-shadow: 8px 1px 5px rgb(216, 204, 204);
+    box-shadow: 10px 10px 8px rgb(216, 204, 204);
     padding: 0px;
     margin: 10px;
     display: flex;
     flex-direction: row;
+    background-color: rgba(34, 33, 33, 0.664);
 }
 
 .Cart-Cont1{
     height: 100%;
     width: 25%;
     box-sizing: border-box;
- 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,9 @@
     height: 100%;
     width: 50%;
     box-sizing: border-box;
-    border-left: 1px solid rgb(182, 174, 174);
+    font-size: 24px;
+    text-align: center;
+    color: whitesmoke;
 }
 .Cart-Cont3{
     height: 100%;
@@ -40,5 +42,31 @@
     border-left: 1px solid rgb(182, 174, 174);
     display: flex;
     flex-direction: column;
+  align-items: center;
     gap: 5px;
+}
+
+.Item-Titulo{
+    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+    text-align: center;
+    color: whitesmoke;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.Item-Texto{
+    text-align: center;
+    color: whitesmoke;
+    font-size: 20px;
+}
+.Item-Boton{
+    width: 80%;
+    height: 40px;
+    margin-top: 15px;
+    background-color: rgba(34, 33, 33, 0.664);
+    border: 1px solid rgb(182, 174, 174);
+    border-radius: 5px;
+    text-align: center;
+    color: whitesmoke;
+    font-size: 14px;
 }

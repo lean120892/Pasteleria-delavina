@@ -27,14 +27,15 @@ function NavBar(){
         <div className='contenedor-navbar'>
   
             <div className='titulo-navbar'> 
-                <p><Link to ="/"> My Pasteleria</Link></p> 
+                <Link className= 'link' to ="/"><p> My Pasteleria</p> </Link>
             </div>
             
             <div>
                 <ul className='accesos-navbar'>
-                 <Link to ="/">Productos</Link>
-                 <Link to ="/category/Salado">Salados</Link>
-                 <Link to ="/category/Dulce">Dulces</Link>
+                 <Link className= 'link'to ="/"><p>Productos</p> </Link>
+                 <Link className= 'link'to ="/category/Salado"> <p>Salados</p></Link>
+                 <Link  className= 'link'to ="/category/Dulce"> <p>  Dulces</p>
+               </Link>
 
                 </ul>
             </div>

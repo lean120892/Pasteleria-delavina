@@ -1,6 +1,6 @@
 
 .contenedor-navbar{
-    background-color: bisque;
+    background-color: rgba(34, 33, 33, 0.815);
     box-shadow: 0 1px 11px 3px rgb(0 0 0/21%);
     box-sizing: border-box;
     margin: 10px;
@@ -8,13 +8,23 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    height: 100px;
 
 
 }
-.titulo-navbar{
+.titulo-navbar {
     width: 50%;
     margin-left: 25px;
 
+
+}
+.link{
+    text-decoration: none;
+}
+.titulo-navbar p{
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    color: whitesmoke;
 }
 .accesos-navbar{
    
@@ -27,10 +37,10 @@
     list-style: none;
     color:blue;
 }
-.accesos-navbar li a{
-    text-decoration: none;
-    list-style: none;
-    color:blue;
+.accesos-navbar p{
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    color: whitesmoke;
 }
 
 .cart-navbar{

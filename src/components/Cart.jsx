@@ -73,17 +73,30 @@ function Cart() {
               ))}
       </div>
       <div className='Cart-Compra'>
-        <div>Mis Productos</div>
-        <div>Subtotal: $ {subTotal}</div>
-        <div><button onClick={()=>{test.deleteAllProducts()}}>Eliminar Todo</button></div>
-        <div><button onClick={FinalizarCompra}>Comprar</button></div>
+        <div className='Cart-Texto'>Mis Productos</div>
+        <div>
+          {test.carList.map(item =>(
+            <span className='Cart-Info'>
+            <p>{"==> " + item.title} </p> <p>Cant:  </p> <p>{" x " + item.cant +" u"}</p>
+            <p>$:  </p><p>{item.price}</p>
+            <p> --Total: $ {item.price * item.cant} </p>
+            </span>
+
+          ))}
+        </div>
+        <div className='Cart-Texto2'> -- Subtotal: $ {subTotal} -- </div>
+        <div className='Cart-Botonera'>
+          <div><button className='Cart-Boton' onClick={()=>{test.deleteAllProducts()}}>Eliminar Todo</button></div>
+          <div><button className='Cart-Boton' onClick={FinalizarCompra}>Comprar</button></div>
+        </div>
+
       </div>
     </div>
 
 
     : <div className='Cart-Vacio'>
         <h3>Su Carrito se encuentra vacio</h3>
-        <Link to="/"><button>Ir a Comprar!!</button></Link>
+        <Link to="/"><button className='Cart-Boton'>Ir a Comprar!!</button></Link>
       </div>
          
     }

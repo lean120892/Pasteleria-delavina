@@ -36,14 +36,14 @@ let GoTo = (data)=>{
       </div>
       <div className='Cart-Cont2'>
         <div className='Item-Titulo'>{props.title}</div>
-        <div className='Item-Titulo'>Precio: {props.price}</div>
-        <div className='Item-Titulo'>Stock: {props.stock}</div>
+        <div className='Item-Texto'>Precio: {props.price}</div>
+        <div className='Item-Texto'>Stock: {props.stock}</div>
       </div>
       <div className='Cart-Cont3'>
-        <span>Cantidad: {props.cant}</span>
+        <span className='Item-Texto'>Cantidad: {props.cant}</span>
 
-        <button onClick={()=>{GoTo(props.id)}}>Ir al Producto</button>
-        <button onClick={()=>{Delete(props.id)}}>Eliminar Compra</button>
+        <button  className='Item-Boton' onClick={()=>{GoTo(props.id)}}>Ir al Producto</button>
+        <button className='Item-Boton' onClick={()=>{Delete(props.id)}}>Eliminar Compra</button>
         
       </div>
     

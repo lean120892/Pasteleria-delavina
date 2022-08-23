@@ -1,16 +1,17 @@
 .Container{
     /*border: solid 1px black;*/
     width: 100%;
-    height: auto;
+    height:auto;
     box-sizing: border-box;
     padding-left: 10px;
     display: flex;
     flex-direction: row;
     gap: 10px;
-    justify-content:safe;
+    
     justify-items:left ;
     align-content: space-around;
     align-items:initial;
     flex-wrap: wrap;
+  
 
 }

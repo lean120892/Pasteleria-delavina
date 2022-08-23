@@ -78,15 +78,15 @@ function ItemCount({props,stock,initial}) {
 
       ?<div className='ItemCountContainer' >
           <div className='ItemCountainer-Contador'>
-                <button  onClick={botonSumar}> + </button>
+                <button className='ItemCountainer-Btn1' onClick={botonSumar}> + </button>
                 <p>{cantProducto}</p>
-                <button disabled={botonState} onClick={botonRestar}> - </button>
+                <button className='ItemCountainer-Btn1' disabled={botonState} onClick={botonRestar}> - </button>
           </div>
-          <button id ="BotonAdd" disabled={botonState} onClick={()=>{onAdd(cantProducto)}} > Agregar</button>
+          <button id ="BotonAdd" className='ItemCountainer-Btn2' disabled={botonState} onClick={()=>{onAdd(cantProducto)}} > Agregar</button>
         </div>
-      :<div>
-         <button onClick={irAlCarrito}><Link to="/cart">Ir al Carrito</Link></button>
-         <button onClick={irAlCarrito}><Link to="/">Seguir Comprando</Link></button>
+      :<div className='ItemCountContainer' >
+         <Link className='link' to="/cart"><button className='ItemCountainer-Btn2' onClick={irAlCarrito}>Ir al Carrito</button></Link>
+         <Link className='link' to="/"><button className='ItemCountainer-Btn2' onClick={irAlCarrito}>Seguir Comprando</button></Link>
       </div>
     }
     </>

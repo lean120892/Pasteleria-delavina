@@ -9,7 +9,8 @@ import CartContextProvider from './components/CartContext'
 
 function App() {
   return (
-    <>
+    <div className='cuerpo'>
+  
     <CartContextProvider >
       <BrowserRouter >
           <NavBar/>
@@ -23,7 +24,7 @@ function App() {
     </CartContextProvider>
      
 
-    </>
+    </div>
    
   );
 }
